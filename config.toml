@@ -23,5 +23,7 @@ perf_flags = [
 ]
 
 [exclude]
-directories = ["node_modules", ".venv", "dist", "build", "__pycache__"]
-files = ["*.pyc", "*.log", "*.tmp"]
+# Leave unset to use built-in defaults (node_modules, .venv, __pycache__, etc.).
+# Setting either list REPLACES the defaults, so include everything you want.
+# directories = ["node_modules", ".venv", "dist", "build"]
+# files = ["*.pyc", "*.log"]
