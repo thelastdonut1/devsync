@@ -28,8 +28,8 @@ def build_parser() -> argparse.ArgumentParser:
         "-c",
         "--config",
         type=Path,
-        default=Path("config.toml"),
-        help="Path to config.toml (default: ./config.toml)",
+        default=None,
+        help="Path to config.toml (default: <project root>/config.toml)",
     )
 
     parser.add_argument(
