@@ -1,0 +1,27 @@
+# devsync configuration. Copy to each machine; only [machine] and paths differ.
+
+[machine]
+# Drive subfolder for this machine. Defaults to hostname if omitted.
+name = "mz-software-dev"
+
+[paths]
+source = "C:\\Users\\MOMoore\\Documents\\Software Development"
+local_destination = "C:\\Backups\\Software Development"
+
+[rclone]
+enabled = true
+remote_name = "gdrive"
+remote_path = "Backups/Software Development"
+mode = "sync"
+dry_run = false
+perf_flags = [
+    "--transfers", "16",
+    "--checkers", "16",
+    "--fast-list",
+    "--drive-use-trash=false",
+    "--drive-chunk-size", "16M",
+]
+
+[exclude]
+directories = ["node_modules", ".venv", "dist", "build", "__pycache__"]
+files = ["*.pyc", "*.log", "*.tmp"]

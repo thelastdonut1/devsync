@@ -1,0 +1,10 @@
+[paths]
+source = "__SOURCE__"
+local_destination = "__DEST__"
+
+[rclone]
+enabled = true
+mode = "copy"
+
+[machine]
+name = "test-machine"
