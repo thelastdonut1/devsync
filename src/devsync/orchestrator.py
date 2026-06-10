@@ -84,6 +84,10 @@ def run_pipeline(config: Config, dry_run_override: bool | None = None) -> int:
         logger.info("Cloud leg disabled in config; done.")
         return 0
 
+    if dry_run and not local_dest.exists():
+        logger.info("Cloud leg skipped in dry-run: local mirror %s does not exist yet.", local_dest)
+        return 0
+
     remote_dst = f"{config.rclone.remote_name}:{config.rclone.remote_path}/{config.machine.resolved_name()}"
     t1 = time.perf_counter()
     job = rclone.SyncJob(
