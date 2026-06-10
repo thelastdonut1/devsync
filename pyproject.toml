@@ -15,7 +15,7 @@ dev = [
 ]
 
 [project.scripts]
-devsync = "devsync:main"
+devsync = "devsync:cli.main"
 
 [build-system]
 requires = ["uv_build>=0.11.7,<0.12.0"]
