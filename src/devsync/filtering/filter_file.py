@@ -83,11 +83,11 @@ def build_filter_lines(
         lines.append("")
 
     lines.append("# Global junk dirs")
-    lines.extend(f"-  {d}/**" for d in junk_dirs)
+    lines.extend(f"- {d}/**" for d in junk_dirs)
     lines.append("")
 
     lines.append("# Global junk files")
-    lines.extend(f"-  {f}" for f in junk_files)
+    lines.extend(f"- {f}" for f in junk_files)
     lines.append("")
 
     lines.append("# Everything else is included by rclone's default fallthrough")
