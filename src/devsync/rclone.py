@@ -34,7 +34,7 @@ def build_command(job: SyncJob) -> list[str]:
     cmd += [job.mode, job.src, job.dst]
     cmd += ["--filter-from", str(job.filter_file)]
     cmd += ["--exclude-if-present", EXCLUDE_DIR_MARKER]
-    cmd += ["--stats", "30s", "--stats-one-line"]
+    cmd += ["-v", "--stats", "30s"]
 
     if job.dry_run:
         cmd.append("--dry-run")
