@@ -50,7 +50,15 @@ def run(job: SyncJob, label: str = "sync") -> int:
     logger.debug("[%s] command: %s", label, " ".join(cmd))
 
     try:
-        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        process = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            bufsize=1,
+        )
     except FileNotFoundError:
         logger.error("rclone not found on PATH. Install rclone and retry.")
         return 127
