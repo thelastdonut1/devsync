@@ -31,6 +31,9 @@ uv sync                 # install deps + the package
 uv run devsync --help
 ```
 
+Optionally install [`just`](https://github.com/casey/just) to use the
+shortcuts in the `justfile` (`just --list` to see them all).
+
 ## Usage
 
 ```bash
@@ -39,6 +42,15 @@ uv run devsync --dry-run           # rclone --dry-run on both legs
 uv run devsync                     # real backup
 uv run devsync -v                  # verbose (shows rclone commands)
 uv run devsync -c path/to/cfg.toml # use a non-default config file
+```
+
+Or with `just`:
+
+```bash
+just audit          # show the git audit, no syncing
+just dry-run        # rclone --dry-run on both legs
+just run            # real backup
+just run-verbose    # verbose (shows rclone commands)
 ```
 
 Can also be invoked as `python -m devsync`. Run manually, or wire `devsync`
@@ -90,3 +102,5 @@ uv run pytest           # tests
 uv run ruff check .     # lint
 uv run ruff format .    # format
 ```
+
+Or with `just`: `just test`, `just lint`, `just format`.
