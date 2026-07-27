@@ -2,10 +2,10 @@
 
 [machine]
 # Drive subfolder for this machine. Defaults to hostname if omitted.
-name = "mz-software-dev"
+name = "my-pc-name"
 
 [paths]
-source = "C:\\Users\\MOMoore\\Documents\\Software Development"
+source = "C:\\Software Development"
 local_destination = "C:\\Backups\\Software Development"
 
 [rclone]
