@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from devsync.config import load_config
+from devsync.config import MachineConfig, load_config
 
 
 def test_valid_config(valid_config: Path) -> None:
@@ -15,6 +15,14 @@ def test_valid_config(valid_config: Path) -> None:
     assert config.paths.source.exists()
     assert config.rclone.mode == "copy"
     assert config.machine.resolved_name() == "test-machine"
+
+
+def test_machine_name_normalized_to_lowercase() -> None:
+    assert MachineConfig(name="MOMoore-5747").resolved_name() == "momoore-5747"
+
+
+def test_machine_name_normalized_strips_whitespace() -> None:
+    assert MachineConfig(name="  My-PC  ").resolved_name() == "my-pc"
 
 
 def test_missing_source_fails(tmp_path: Path) -> None:

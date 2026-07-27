@@ -96,7 +96,9 @@ class MachineConfig(BaseModel):
     name: str | None = None
 
     def resolved_name(self) -> str:
-        return self.name or socket.gethostname()
+        # Lowercased so e.g. "MOMoore-5747" and "momoore-5747" can't produce
+        # separate remote folders for the same machine.
+        return (self.name or socket.gethostname()).strip().lower()
 
 
 class Config(BaseModel):

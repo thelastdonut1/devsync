@@ -68,7 +68,9 @@ Edit `config.toml` (validated on load; bad config fails fast with a clear error)
 - `rclone.remote_path` — base path on the remote (default `"DevBackups"`)
 - `rclone.mode` — `sync` (mirror, deletions propagate) or `copy` (never deletes)
 - `[exclude].directories` / `[exclude].files` — global junk patterns (replaces built-in defaults when set)
-- `[machine].name` — Drive subfolder (defaults to hostname)
+- `[machine].name` — Drive subfolder (defaults to hostname); normalized to
+  lowercase so e.g. `MOMoore-5747` and `momoore-5747` can't end up as two
+  separate remote folders
 
 ## Per-directory ignores
 
