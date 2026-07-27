@@ -1,6 +1,6 @@
 [project]
 name = "devsync"
-version = "0.1.0"
+version = "0.1.1"
 description = "Safely back up a development folder to a cloud remote, with git-aware .git exclusion and .backupignore filtering."
 readme = "README.md"
 requires-python = ">=3.12"
